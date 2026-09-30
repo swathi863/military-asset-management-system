@@ -4,7 +4,7 @@ import { Shield, Lock, User, Key, AlertCircle, CheckCircle2 } from 'lucide-react
 
 export default function LoginModal({ onLoginSuccess }) {
   const [username, setUsername] = useState('admin');
-  const [password, setPassword] = useState('password123');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -22,9 +22,9 @@ export default function LoginModal({ onLoginSuccess }) {
     }
   };
 
-  const quickSelectUser = (userAcc, userPass) => {
+  const quickSelectUser = (userAcc) => {
     setUsername(userAcc);
-    setPassword(userPass);
+    setPassword('');
   };
 
   return (
@@ -56,6 +56,7 @@ export default function LoginModal({ onLoginSuccess }) {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter username"
                 required
                 className="pl-9 pr-3 py-2 w-full bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-100 focus:outline-none focus:border-emerald-500 font-mono"
               />
@@ -70,6 +71,7 @@ export default function LoginModal({ onLoginSuccess }) {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter password"
                 required
                 className="pl-9 pr-3 py-2 w-full bg-slate-950 border border-slate-800 rounded-lg text-xs text-slate-100 focus:outline-none focus:border-emerald-500 font-mono"
               />
@@ -99,7 +101,8 @@ export default function LoginModal({ onLoginSuccess }) {
           </span>
           <div className="grid grid-cols-2 gap-2 text-[10px]">
             <button
-              onClick={() => quickSelectUser('admin', 'password123')}
+              type="button"
+              onClick={() => quickSelectUser('admin')}
               className={`p-2 rounded border text-left transition-colors ${
                 username === 'admin' ? 'bg-emerald-950 border-emerald-500 text-emerald-300 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
               }`}
@@ -109,7 +112,8 @@ export default function LoginModal({ onLoginSuccess }) {
             </button>
 
             <button
-              onClick={() => quickSelectUser('commander_bragg', 'password123')}
+              type="button"
+              onClick={() => quickSelectUser('commander_bragg')}
               className={`p-2 rounded border text-left transition-colors ${
                 username === 'commander_bragg' ? 'bg-emerald-950 border-emerald-500 text-emerald-300 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
               }`}
@@ -119,7 +123,8 @@ export default function LoginModal({ onLoginSuccess }) {
             </button>
 
             <button
-              onClick={() => quickSelectUser('commander_pendleton', 'password123')}
+              type="button"
+              onClick={() => quickSelectUser('commander_pendleton')}
               className={`p-2 rounded border text-left transition-colors ${
                 username === 'commander_pendleton' ? 'bg-emerald-950 border-emerald-500 text-emerald-300 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
               }`}
@@ -129,7 +134,8 @@ export default function LoginModal({ onLoginSuccess }) {
             </button>
 
             <button
-              onClick={() => quickSelectUser('logistics_officer', 'password123')}
+              type="button"
+              onClick={() => quickSelectUser('logistics_officer')}
               className={`p-2 rounded border text-left transition-colors ${
                 username === 'logistics_officer' ? 'bg-emerald-950 border-emerald-500 text-emerald-300 font-bold' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800'
               }`}
