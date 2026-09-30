@@ -1,10 +1,12 @@
 package com.military.asset.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "audit_logs")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class AuditLog {
 
     @Id

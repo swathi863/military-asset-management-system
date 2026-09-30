@@ -1,5 +1,6 @@
 package com.military.asset.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
@@ -7,6 +8,7 @@ import java.time.LocalDateTime;
 @Table(name = "base_inventories", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"base_id", "equipment_type_id"})
 })
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class BaseInventory {
 
     @Id

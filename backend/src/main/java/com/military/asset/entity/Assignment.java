@@ -1,11 +1,13 @@
 package com.military.asset.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "assignments")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Assignment {
 
     @Id
